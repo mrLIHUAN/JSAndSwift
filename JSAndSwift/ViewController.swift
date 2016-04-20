@@ -44,6 +44,8 @@ class ViewController: UIViewController,UIWebViewDelegate,JSAndSwiftModdleDelegat
         }
     }
     
+    //mark: --JSAndSwiftModdleDelegate
+    
     func JSCallSwiftWithAlert(Title: String, msg: String) {
         print("\(Title),\(msg)")
     }

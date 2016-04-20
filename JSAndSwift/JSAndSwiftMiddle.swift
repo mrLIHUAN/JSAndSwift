@@ -38,6 +38,11 @@ import JavaScriptCore
 }
 
 
+/**
+ *  @author 李欢, 16-04-20 11:04:48
+ *
+ *  这里面放的都是供H5调用原生的方法，每个方法都有不同的参数
+ */
 @objc protocol JavaScriptSwiftDelegate : JSExport{
     
     
