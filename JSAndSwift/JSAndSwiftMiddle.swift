@@ -40,10 +40,26 @@ import JavaScriptCore
 
 @objc protocol JavaScriptSwiftDelegate : JSExport{
     
+    
+    /**
+     当H5调用原生的Alert框时，在点击事件中需要写--OCModel.showAlertMsg('js title', 'js message')
+     
+     - parameter title: js title
+     - parameter msg:   js message
+     */
     func showAlert(title: String, msg : String)
     
+    /**
+     当H5调用此方法传字典参数----OCModel.callWithDict({'name': 'testname', 'age': 10, 'height': 170})
+     
+     - parameter dict: 参数字典
+     */
     func callWithDict(dict: [String :AnyObject])
     
+    
+    /**
+     当H5调用此方法不传递参数----OCModel.callSystem()
+     */
     func callSystem();
     
 }
