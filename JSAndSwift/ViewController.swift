@@ -29,13 +29,15 @@ class ViewController: UIViewController,UIWebViewDelegate,JSAndSwiftModdleDelegat
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        let context = webView.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as? JSContext
+        
         // 初始化model
         let model = JSAndSwiftMiddle()
         model.delegate = self
 //        model.controller = self
 //        model.jsContext = context
-        self.jscontext = context
+        model.webView = webView
+        self.jscontext = model.jsContext
+        
         self.jscontext?.setObject(model
             , forKeyedSubscript: "OCModel")
         self.jscontext?.exceptionHandler = { (context,exception) in
@@ -43,6 +45,7 @@ class ViewController: UIViewController,UIWebViewDelegate,JSAndSwiftModdleDelegat
             print("exception @",exception)
         }
     }
+    
     
     //mark: --JSAndSwiftModdleDelegate
     

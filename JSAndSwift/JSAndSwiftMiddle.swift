@@ -72,8 +72,19 @@ import JavaScriptCore
 @objc class JSAndSwiftMiddle: NSObject,JavaScriptSwiftDelegate {
     
 //    weak var controller : UIViewController?
-//    weak var jsContext: JSContext?
+    weak var jsContext: JSContext?
     weak var delegate:JSAndSwiftModdleDelegate!
+    
+    var webView:UIWebView!{
+        
+        didSet{
+            
+            jsContext = webView.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as? JSContext!
+        
+        }
+    
+    }
+    
     
     
     func showAlert(title: String, msg: String) {
