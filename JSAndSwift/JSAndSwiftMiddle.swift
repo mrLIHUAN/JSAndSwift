@@ -78,15 +78,9 @@ import JavaScriptCore
     var webView:UIWebView!{
         
         didSet{
-            
             jsContext = webView.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as? JSContext!
-        
         }
-    
     }
-    
-    
-    
     func showAlert(title: String, msg: String) {
         if delegate.respondsToSelector(Selector("JSCallSwiftWithAlert:msg:")) {
            self.delegate.JSCallSwiftWithAlert!(title, msg: msg)

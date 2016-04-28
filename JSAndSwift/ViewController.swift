@@ -37,16 +37,12 @@ class ViewController: UIViewController,UIWebViewDelegate,JSAndSwiftModdleDelegat
 //        model.jsContext = context
         model.webView = webView
         self.jscontext = model.jsContext
-        
         self.jscontext?.setObject(model
             , forKeyedSubscript: "OCModel")
         self.jscontext?.exceptionHandler = { (context,exception) in
-            
             print("exception @",exception)
         }
     }
-    
-    
     //mark: --JSAndSwiftModdleDelegate
     
     func JSCallSwiftWithAlert(Title: String, msg: String) {
